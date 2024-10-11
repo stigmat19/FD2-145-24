@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        const num1 = 5;
+        const num2 = 10;
+        const num3 = 20;
+        const num4 = 30;
+
+        function getResult(x, y, oper, ...other){
+            console.log('===============', arguments);
+            console.log('-----Array', other)
+            switch(oper){
+                case "+": return x + y;
+                case "/": return x / y;
+                case "-": return x - y;
+                case "*": return x * y;
+            }
+        }
+
+        // const a = getResult();
+
+        const a = 5;
+        let b;
+        let c;
+
+        // function test(str = ''){
+        //     console.log(str.toUpperCase())
+        // }
+
+        // test()
+
+
+        const arr = [1,2,3,4,5].map(num => num * num)
+
+        function changeNumber(num){
+            return num * num
+        }
+
+        const changeNumber1 = num => num * num;
+    </script>
+</body>
+</html>
