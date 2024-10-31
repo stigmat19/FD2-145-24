@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // "use strict"
+
+        function Test(){
+            this.name = "Ivan"
+
+            this.getThis = function(){
+                console.log('-----this: ', this)
+            }
+        }
+
+        const test = new Test();
+        const test1 = new Test();
+
+        const obj = {
+            a: 5,
+            b: 10,
+            test: "test111"
+        }
+
+        function hello(){
+            console.log('------this1', this);
+            console.log('------this1', this.test)
+        }
+
+        hello.call(obj);
+        
+    </script>
+</body>
+</html>
