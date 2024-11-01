@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        'use strict'
+
+        function Wrapper(prefix, postfix) {
+
+            this.prefix = prefix;
+            this.postfix = postfix;
+
+            this.wrap = function (texts) {
+                let s = "";
+                for (let i = 0; i < texts.length; i++)
+                    s += this.prefix + texts[i] + this.postfix;
+                return s;
+            }
+
+        }
+
+        const h1Wrapper = new Wrapper("<h1>", "</h1>");
+        const pWrapper = new Wrapper("<p>", "</p>");
+        console.log(h1Wrapper.wrap(["hello"]));
+        console.log(pWrapper.wrap(["world"]));
+
+        function test(v) {
+            console.log('this', this);
+        }
+
+        const aaa = function(){}
+
+        window.test()
+    </script>
+
+</body>
+
+</html>
