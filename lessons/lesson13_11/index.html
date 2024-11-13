@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+
+    <title>Document</title>
+
+    <style>
+        [title]{
+            color: blue;
+        }
+        .a{
+            width: 200px;
+            height: 200px;
+            margin-left: 0;
+            background-color: red;
+            color: aliceblue;
+            font-style: italic;
+            transition: .5s;
+        }
+        .b{
+            /* width: 200px;
+            height: 200px;
+            background-color: blue;
+            color: aliceblue;
+            font-style: normal;
+            margin-left: -220px;
+            transition: .5s; */
+            font-weight: 900;
+        }
+        #btn2{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>hello</h1>
+
+    <button id="btn1" onclick="f1()">click1</button>
+    <div style="height: 50px; margin: 50px; position: relative;">
+        <button id="btn2" onclick="f2()">click2</button>
+    </div>
+    
+
+    <div style="display: flex;" id="app1" class="a" title="Hello" onclick="f()">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis nostrum inventore sed maxime quod? Blanditiis cumque saepe magni qui, quis non iure consequatur, ea sed esse fuga voluptatem sequi. Adipisci!</div>
+    <br>
+    <div id="app2" title="Hello" onclick="f()">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis nostrum inventore sed maxime quod? Blanditiis cumque saepe magni qui, quis non iure consequatur, ea sed esse fuga voluptatem sequi. Adipisci!</div>
+    <br>
+    <div id="app3" title="Hello" onclick="f()">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis nostrum inventore sed maxime quod? Blanditiis cumque saepe magni qui, quis non iure consequatur, ea sed esse fuga voluptatem sequi. Adipisci!</div>
+    
+
+    <script>
+        // const btn1 = document.getElementById('btn1');
+        const btn2 = document.querySelector('#btn2');
+        const app1 = document.querySelector('#app1');
+
+        const f1 = () => {
+            app1.className = 'a'
+        }
+
+        const f2 = () => {
+            app1.className += ' b'
+        }
+
+    </script>
+</body>
+</html>
