@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 10000px;
+        }
+        .wrap{
+            display: flex;
+            padding: 20px;
+        }
+        .car-color{
+            width: 50px;
+            height: 20px;
+            border-radius: 10px;
+            margin-bottom: 3px;
+        }
+        .card-text{
+            margin-bottom: 3px;
+        }
+        .card{
+            width: 18rem;
+        }
+    </style>
+</head>
+
+<body>
+    brand
+    <input type="text" name="brand"><br><br>
+    model
+    <input type="text" name="model"><br><br>
+    color
+    <input type="color" name="color"><br><br>
+    imgUrl
+    <input type="text" name="imgUrl"><br><br>
+    price
+    <input type="number" name="price"><br><br>
+    year
+    <input type="number" name="year" min="1990" max="2024"><br><br>
+    transmissionType
+    <select name="transmissionType">
+        <option value="variator">variator</option>
+        <option value="robot">robot</option>
+        <option value="automatic">automatic</option>
+    </select><br>
+    <button class="btn btn-primary" onclick="addCar()">add</button>
+    <hr>
+
+    <div class="wrap"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        const cars = [
+            {
+                brand: "BMW",
+                model: "x5",
+                color: "#c64e4e",
+                imgUrl: "img/bmw.jpg",
+                price: "100000",
+                year: "1992"
+            },
+            {
+                brand: "Audi",
+                model: "q5",
+                color: "#33d7d4",
+                imgUrl: "img/audi.jpg",
+                price: "100000",
+                year: "1995"
+            }
+        ];
+
+        const wrap = document.querySelector('.wrap');
+
+        const addCar = () => {
+            const inputs = document.querySelectorAll('input[name]');
+            const select = document.querySelector('select');
+
+            const car = {};
+
+            for (const inp of inputs) {
+                car[inp.name] = inp.value
+            }
+
+            cars.push(car);
+
+            render(cars);
+        }
+
+        const createCard = (carData, parent) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const image = document.createElement('img');
+            image.className = 'card-img-top';
+            image.src = carData.imgUrl;
+
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+
+            const h5 = document.createElement('h5');
+            const h5Text = document.createTextNode(`${carData.brand} ${carData.model}`)
+            h5.className = 'card-title';
+
+            const carColor = document.createElement('div');
+            carColor.className = 'car-color';
+            carColor.style.backgroundColor = carData.color;
+
+            const carPrice = document.createElement('p');
+            carPrice.className = 'card-text car-price';
+            carPrice.innerText = `price: ${carData.price}$`;
+
+            const carYear = document.createElement('p');
+            carYear.className = 'card-text car-year';
+            carYear.innerText = `year: ${carData.year}$`;
+
+            
+            card.appendChild(image);
+            card.appendChild(cardBody);
+            h5.appendChild(h5Text);
+            cardBody.appendChild(h5);
+            cardBody.appendChild(carColor);
+            cardBody.appendChild(carPrice);
+            cardBody.appendChild(carYear);
+
+            parent.appendChild(card);
+        }
+
+        const render = (data) => {
+            console.log('----data', data);
+
+            data.forEach(car => {
+                createCard(car, wrap)
+            })
+            
+        }
+
+        render(cars)
+
+        
+        
+    </script>
+
+</body>
+
+</html>
+
+<!-- <div class="card">
+        <img src="${car.imgUrl}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">${car.brand} ${car.model}</h5>
+            <div class="car-color" style="background-color: ${car.color};"></div>
+            <p class="card-text car-price">price: ${car.price}$</p>
+            <p class="card-text car-year">year: ${car.year}</p>
+            <p class="card-text car-transmission">transmission: variator</p>
+            <a href="#" class="btn btn-primary">Buy</a>
+        </div>
+    </div> -->
