@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #modal{
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 0;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        #content{
+            background-color: azure;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            bottom: 20%;
+            right: 20%;
+            
+        }
+        #content span{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="openModal">open</button>
+
+    <div id="modal">
+        <div id="content">
+            <span class="close">X</span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati esse, nesciunt est eligendi porro suscipit dolorem impedit iure sequi consequatur incidunt aperiam hic maiores dolorum nisi! Eius magni hic dolores.
+        </div>
+    </div>
+
+    <script>
+
+        
+        const openModal = document.getElementById('openModal');
+        const modal = document.getElementById('modal');
+        const closeBtn = document.querySelector('.close');
+        const content = document.getElementById('content');
+
+        openModal.addEventListener('click', () => {
+            modal.style.height = '100vh'
+        })
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.height = '0'
+        })
+
+        content.addEventListener('click', (e) => {
+            e.stopPropagation();
+        })
+
+        modal.addEventListener('click', (e) => {
+            modal.style.height = '0'
+        })
+
+    </script>
+    
+</body>
+</html>
