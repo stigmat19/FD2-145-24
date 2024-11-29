@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const newYearTime = new Date(2025,0,1,0,0,0);
+        const newYear = newYearTime.getTime();
+
+        let timer = 0;
+
+        timer = setInterval(() => {
+            const currTime = new Date();
+            const sec = (newYear - currTime.getTime()) / 1000;
+            const min = sec / 60;
+            const hour = min / 60;
+
+            const day =`Дней: ${Math.floor(hour / 24)}, часов: ${Math.floor(hour % 24)}, минут: ${Math.floor(min % 60)}, секунд: ${Math.floor(sec % 60)}`
+
+            console.log('----day', day)
+        }, 1000)
+
+    </script>
+
+</body>
+</html>
