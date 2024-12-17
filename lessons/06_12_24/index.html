@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ellipse{
+            fill: #bf5f00;
+            transition: 0.5s;
+        }
+        ellipse:hover{
+            fill: red
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="app"></div>
+
+
+    <script>
+        const app = document.getElementById('app');
+
+        app.innerHTML = `
+        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <title>Layer 1</title>
+                <ellipse ry="9.68082" rx="9.78721" id="svg_1" cy="27.55319" cx="14.78726" stroke="#000"/>
+                <rect id="svg_2" height="15.31911" width="21.70207" y="7.87239" x="20.10639" stroke="#000" fill="#00ff00"/>
+            </g>
+        </svg>
+        `
+
+    </script>
+
+</body>
+</html>
