@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <button id="btn">click</button>
+
+
+    <script>
+        const btn = document.getElementById('btn');
+        const app = document.getElementById('app');
+
+        btn.addEventListener('click', () => {
+            fetch('http://localhost:3000/cars', { method: 'get' })
+                .then(res => res.json())
+                .then(data => {
+                    const html = data.reduce((acc, current) => {
+                        return acc += `<li>${current.brand} <button data-id=${current.id}>del</button></li>`
+                    }, '')
+                    app.innerHTML = `<ul>${html}</ul>`;
+                })
+        })
+    </script>
+</body>
+
+</html>
